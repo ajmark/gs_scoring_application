@@ -2,8 +2,10 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var http = require('http');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var db = require ('./models')
 
 var app = express();
 
@@ -52,6 +54,20 @@ if (app.get('env') === 'production') {
         });
     });
 }
+
+/**
+ * Database Settings
+ */
+
+// db.sequelize.sync().complete(function(err) {
+//   if (err) {
+//     throw err[0]
+//   } else {
+//     http.createServer(app).listen(app.get('port'), function(){
+//       console.log('Express server listening on port ' + app.get('port'))
+//     })
+//   }
+// })
 
 /**
  * Routes
