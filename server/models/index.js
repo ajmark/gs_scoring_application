@@ -22,13 +22,11 @@ global.db = {
 
 global.db.User.hasMany(global.db.Scorecard)
 global.db.Show.hasMany(global.db.Scorecard)
-global.db.Show.hasMany(global.db.ShowListing)
 global.db.Scorecard.belongsTo(global.db.User)
 global.db.Scorecard.belongsTo(global.db.Show)
+global.db.Show.hasMany(global.db.ShowListing)
 global.db.Organization.hasMany(global.db.ShowListing)
 global.db.ShowListing.belongsTo(global.db.Show)
 global.db.ShowListing.belongsTo(global.db.Organization)
-
-console.log(global.db);
 
 module.exports = global.db
